@@ -7,7 +7,7 @@ require 'rubygems/specification'
  
 spec = Gem::Specification.new do |s|
   s.name = "rxen"
-  s.version = "0.1.1"
+  s.version = "0.1.2"
   s.authors = ['Philipp Fehre']
   s.email = "philipp.fehre@googlemail.com"
   s.homepage = "https://github.com/sideshowcoder/rxen-gem"
