@@ -10,7 +10,7 @@ spec = Gem::Specification.new do |s|
   s.version = "0.1.1"
   s.authors = ['Philipp Fehre']
   s.email = "philipp.fehre@googlemail.com"
-  s.homepage = "http://sideshowcoder.com/rxen"
+  s.homepage = "https://github.com/sideshowcoder/rxen-gem"
   s.description = "Ruby wrapper to acces the Xen XML-RPC API via simple ruby methods" 
   s.summary = "Handles login, and after that all other Xen API methods exposed via XML-RPC by XenServer"
   
