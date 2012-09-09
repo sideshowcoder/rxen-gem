@@ -1,0 +1,70 @@
+== rxen
+
+Ruby wrapper to access the Xen XML-RPC API via simple to use ruby methods, not 
+all methods are implemented, yet. They can be easily added by simply extending the
+Session class RPC_METHODS Hash to include the correct Regular Expression mathing the
+call.
+
+== example
+
+	# Get the rxen gem
+	require 'rxen'
+
+	# create a Session with the Xen Server you want to control
+	xs = Session.new("https://my.xenserver.company.com/")
+
+	# login with username and password
+	xs.login_with_password("root", "password")
+
+	# Some example calls, all possible calls can be found in the XenAPI 
+	# Documentation. Calls are build by class_function(parameters), it is not needed
+	# to pass the session id since it is done automatically.
+	# Get IDs for the VMs running on the Server
+	xs.VM_get_all()
+
+	# register for all task events 
+	xs.event_register(["task"])
+
+	# get the next event from the queue
+	xs.event_next()
+
+	# unregister from the task events 
+	xs.event_unregister(["task"])
+
+	# logout of the XenServer 
+	xs.logout()
+
+Alternativly config based login can be done via 
+	
+	xs = Session.new_with_config("configfile.json")
+
+== license 
+
+(the BSD license)
+
+Copyright 2010 Philipp Fehre. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are
+permitted provided that the following conditions are met:
+
+   1. Redistributions of source code must retain the above copyright notice, this list of
+      conditions and the following disclaimer.
+
+   2. Redistributions in binary form must reproduce the above copyright notice, this list
+      of conditions and the following disclaimer in the documentation and/or other materials
+      provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY PHILIPP FEHRE ``AS IS'' AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND
+FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> OR
+CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+The views and conclusions contained in the software and documentation are those of the
+authors and should not be interpreted as representing official policies, either expressed
+or implied, of Philipp Fehre.
+
